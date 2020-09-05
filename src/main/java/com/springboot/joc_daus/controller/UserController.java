@@ -35,7 +35,7 @@ public class UserController {
             return ResponseEntity.ok(userList);
         }
     }
-    @PostMapping("insert")
+    @PostMapping("/insert")
     public ResponseEntity<User> insert(@Validated User user, BindingResult result) throws Exception {
        // user = controlGame.asignarValoresUser(user);
 
