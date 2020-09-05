@@ -32,8 +32,8 @@ public class User implements Serializable {
 
     @Column(name = "playsWon")
     private int playsWon;
-    @Column(name="Date")
-    Date date;
+    @Column(name="dateRegister")
+    private String dateRegister;
 
     @JsonIgnore
     @OneToMany(mappedBy="userMany" ) //, cascade = CascadeType.ALL
@@ -41,24 +41,22 @@ public class User implements Serializable {
 
     public User() {
     }
-    public User(int idUser, String userName, int counterPlays, double ranking, int playsWon, List<Plays> playsList) {
+    public User(int idUser, String userName, int counterPlays, double ranking, int playsWon, List<Plays> playsList, String dateRegister) {
         this.idUser = idUser;
         this.userName = userName;
         this.counterPlays = counterPlays;
         this.ranking = ranking;
         this.playsWon = playsWon;
         this.playsList = playsList;
-
+        this.dateRegister = dateRegister;
     }
 
-    public String getDate() {
-        date = new Date();
-        DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        return fecha.format(date);
+    public String getDateRegister() {
+        return dateRegister;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateRegister(String dateRegister) {
+        this.dateRegister = dateRegister;
     }
 
     public int getIdUser() {

@@ -7,11 +7,9 @@ import com.springboot.joc_daus.repository.app.Game.VerificarDatos;
 import com.springboot.joc_daus.service.IPlaysService;
 import com.springboot.joc_daus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +20,7 @@ public class PlaysController {
     private ControlGame controlGame = new ControlGame();
     @Autowired
     private IPlaysService iPlaysService;
+//    @Qualifier("userService")
     @Autowired
     private IUserService iUserService;
     private VerificarDatos verificarDatos = new VerificarDatos();
@@ -54,7 +53,7 @@ public class PlaysController {
         iPlaysService.deleteAll(listPlays);
         // Despues de borrar partidas, reiniciar contadores a zero.
         List<User> userList = iUserService.findByIdUser(userId);
-        User user = verificarDatos.asignarValoresNewUser(userList.get(0));
+        User user = verificarDatos.asignarValoresUser(userList.get(0), "delete");
         iUserService.save(user);
         return HttpStatus.OK;
     }

@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "8c4de65a-be6e-4820-a5ea-f45b3473d811",
+		"name": "Joc_daus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/insert?userName=Albert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"insert"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "Albert"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/actualizar/1?userName=Albert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"actualizar",
+						"1"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "Albert"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Roll Dice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/rollDice/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rollDice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Plays",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/listPlays",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"listPlays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Plays",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/deletePlays/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"deletePlays",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Total",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/rankingMigTotal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rankingMigTotal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Winner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/rankingWinner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rankingWinner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking Loser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/rankingLoser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rankingLoser"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

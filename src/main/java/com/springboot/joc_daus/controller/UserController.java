@@ -7,7 +7,6 @@ import com.springboot.joc_daus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +43,7 @@ public class UserController {
             throw new Exception("No puede haber campos vacios !" );
         }
         user = verificarDatos.verificarDatosUser(user);
-        user = verificarDatos.asignarValoresNewUser(user);
+        user = verificarDatos.asignarValoresUser(user, "");
         iUserService.save(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
