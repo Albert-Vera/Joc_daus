@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "user")
+@Entity
+@Table(name = "userAdmin")
 public class UserAdmin {
     @Id
     private int id;

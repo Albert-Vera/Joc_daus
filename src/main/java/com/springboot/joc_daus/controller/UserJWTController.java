@@ -4,11 +4,13 @@ package com.springboot.joc_daus.controller;
 import com.springboot.joc_daus.model.UserAdmin;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -20,11 +22,13 @@ public class UserJWTController {
     @PostMapping("user")
     public UserAdmin login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
 
-        String token = getJWTToken(username);
-        UserAdmin userAdmin = new UserAdmin();
-        userAdmin.setUser(username);
-        userAdmin.setToken(token);
-        return userAdmin;
+        if (username.equals("admin") && pwd.equals("1234")) {
+            String token = getJWTToken(username);
+            UserAdmin userAdmin = new UserAdmin();
+            userAdmin.setUser(username);
+            userAdmin.setToken(token);
+            return userAdmin;
+        }else return null;
     }
 
     private String getJWTToken(String username) {

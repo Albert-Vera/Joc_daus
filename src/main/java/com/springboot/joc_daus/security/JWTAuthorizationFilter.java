@@ -1,7 +1,16 @@
 package com.springboot.joc_daus.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springboot.joc_daus.model.User;
+import com.springboot.joc_daus.model.UserAdmin;
+import com.springboot.joc_daus.repository.IUserAdminRepository;
 import io.jsonwebtoken.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -15,6 +24,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
+
+    @Autowired
+    IUserAdminRepository iUserAdminRepository;
 
     private final String HEADER = "Authorization";
     private final String PREFIX = "Bearer ";
@@ -67,5 +79,21 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             return false;
         return true;
     }
+//    @Override
+//    public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException, IOException, ServletException {
+//        EmbeddedLdapProperties.Credential creds = new ObjectMapper().readValue(req.getInputStream(), EmbeddedLdapProperties.Credential.class);
+//
+//        UserAdmin user = iUserAdminRepository.login(creds);
+//
+//        if (user == null)
+//            throw new BadCredentialsException("");
+//
+//        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+//                creds.getUsername(),
+//                creds.getPassword()
+//        );
+//
+//        return token;
+//    }
 
 }
