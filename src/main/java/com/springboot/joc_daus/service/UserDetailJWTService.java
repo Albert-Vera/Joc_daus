@@ -20,8 +20,7 @@ public class UserDetailJWTService implements UserDetailsService {
 
     @Autowired
     IUserAdminRepository repo;
-    @Autowired
-    PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String userAdmin) throws UsernameNotFoundException {
 
@@ -31,7 +30,7 @@ public class UserDetailJWTService implements UserDetailsService {
         roles.add(new SimpleGrantedAuthority("ADMIN"));
 
         //UserDetails userDetail = new User(us.getUser(), us.getPassword(), roles);
-        UserDetails userDetail = new User("admin", passwordEncoder.encode( "1234"), roles);
+        UserDetails userDetail = new User("admin","1234", roles);
         return userDetail;
     }
 }

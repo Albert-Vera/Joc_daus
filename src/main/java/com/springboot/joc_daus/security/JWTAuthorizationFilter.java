@@ -1,8 +1,6 @@
 package com.springboot.joc_daus.security;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springboot.joc_daus.model.User;
-import com.springboot.joc_daus.model.UserAdmin;
+
 import com.springboot.joc_daus.repository.IUserAdminRepository;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
