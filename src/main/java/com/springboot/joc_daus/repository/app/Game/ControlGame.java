@@ -1,8 +1,8 @@
 package com.springboot.joc_daus.repository.app.Game;
 
 
-import com.springboot.joc_daus.model.Plays;
 import com.springboot.joc_daus.model.User;
+import com.springboot.joc_daus.model.Plays;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ControlGame {
         user.get(0).setCounterPlays( user.get(0).getCounterPlays()+1);
         // set Ranking
         DecimalFormat formatter = new DecimalFormat("###,##");
-        double numero =((double)user.get(0).getPlaysWon() / (double)user.get(0).getCounterPlays() *100);
+        double numero =((double) user.get(0).getPlaysWon() / (double) user.get(0).getCounterPlays() *100);
         user.get(0).setRanking(Double.parseDouble(formatter.format(numero)));
         return user.get(0);
     }
@@ -40,7 +40,7 @@ public class ControlGame {
         int mitgaTotal = 0;
 
         for ( User x: userList){
-            mitgaTotal += x.getRanking()/userList.size();
+            mitgaTotal += x.getRanking()/ userList.size();
         }
         return mitgaTotal;
     }
@@ -50,7 +50,7 @@ public class ControlGame {
         int idMes= 0;
         int idMenys = 0;
 
-        for ( int i=0; i < userList.size(); i ++){
+        for (int i = 0; i < userList.size(); i ++){
             if ( userList.get(i).getRanking() > mesAlt) {
                 mesAlt = userList.get(i).getRanking();
                 idMes = i;

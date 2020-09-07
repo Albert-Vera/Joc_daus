@@ -20,11 +20,10 @@ public class UserController {
 
     @Autowired
     private IUserService iUserService;
-    
-
 
     private ControlGame controlGame = new ControlGame();
     private VerificarDatos verificarDatos = new VerificarDatos();
+
 
     @GetMapping("/list")
     public ResponseEntity<List<User>> llistar (){
@@ -37,16 +36,19 @@ public class UserController {
     }
     @PostMapping("/insert")
     public ResponseEntity<User> insert(@Validated User user, BindingResult result) throws Exception {
-       // user = controlGame.asignarValoresUser(user);
 
         if (result.hasErrors()) {
             throw new Exception("No puede haber campos vacios !" );
         }
-        user = verificarDatos.verificarDatosUser(user);
+        List<User> userList = iUserService.findAll();
+        user = verificarDatos.verificarUserName(user, userList);
         user = verificarDatos.asignarValoresUser(user, "");
+        // No me parece la manera más correcta de rechazar el UserName, pero de momento No Acepta Nombre Repetido
+        if(user.getUserName().equalsIgnoreCase("ERROR.. USUARIO YA EXISTENTE !")) return new ResponseEntity<>(user, HttpStatus.NOT_ACCEPTABLE);
         iUserService.save(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
+    //
     @PostMapping("/actualizar/{idUser}")
     public ResponseEntity<User> actualizar(@Validated User user, @PathVariable int idUser){
         Optional<User> userOriginal = iUserService.findById(idUser);// obtener User original
@@ -69,14 +71,15 @@ public class UserController {
     @GetMapping("/rankingLoser")
     public ResponseEntity<User> rankingLoser (){
         List<User> userList = iUserService.findAll();
-        User  user = controlGame.rankingLoserWinner(userList, "min");
+        User user = controlGame.rankingLoserWinner(userList, "min");
         return  ResponseEntity.ok(user);
     }
     @GetMapping("/rankingWinner")
     public ResponseEntity<User> rankingWinner (){
         List<User> userList = iUserService.findAll();
-        User  user = controlGame.rankingLoserWinner(userList, "max");
+        User user = controlGame.rankingLoserWinner(userList, "max");
         return  ResponseEntity.ok(user);
     }
+
 
 }

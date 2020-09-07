@@ -51,6 +51,7 @@ public class User implements Serializable {
         this.dateRegister = dateRegister;
     }
 
+
     public String getDateRegister() {
         return dateRegister;
     }
@@ -84,7 +85,6 @@ public class User implements Serializable {
             this.playsList = new ArrayList<>();
         }
         this.playsList.add(play);
-        System.out.println("anadido..... " + getUserName() + "  " +playsList.size());
     }
 
     public int getCounterPlays() {

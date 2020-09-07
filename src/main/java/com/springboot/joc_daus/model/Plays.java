@@ -3,8 +3,6 @@ package com.springboot.joc_daus.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "plays")
@@ -76,7 +74,7 @@ public class Plays {
         return userMany;
     }
 
-    public void setUserMany(User userMany) {
+    public void setUsererMany(User userMany) {
         this.userMany = userMany;
     }
 //    public List<User> getUserManyList() {
