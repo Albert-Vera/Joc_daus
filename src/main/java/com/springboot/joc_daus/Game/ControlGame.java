@@ -1,4 +1,4 @@
-package com.springboot.joc_daus.repository.app.Game;
+package com.springboot.joc_daus.Game;
 
 
 import com.springboot.joc_daus.model.User;

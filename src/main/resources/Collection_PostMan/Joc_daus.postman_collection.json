@@ -6,6 +6,34 @@
 	},
 	"item": [
 		{
+			"name": "Authorization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/user?user=admin&password=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Insert User",
 			"request": {
 				"method": "POST",
@@ -117,16 +145,27 @@
 		{
 			"name": "List Plays",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NDUyOTg5LCJleHAiOjE1OTk0NTM1ODl9.OA2e97hQl7EicST5b6AS1UXIBT-JBveiWNUYIGhEQGT9iPQ1OVwTxgA9yl5kHoJJ_zkh_3wsF48jVKm08hgGsg",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8090/listPlays",
+					"raw": "localhost:8090/listPlays/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"listPlays"
+						"listPlays",
+						"1"
 					]
 				}
 			},
@@ -204,6 +243,34 @@
 					"port": "8090",
 					"path": [
 						"rankingLoser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5NDUyMjUzLCJleHAiOjE1OTk0NTI4NTN9.oCSKgvaNYPFt9KT2o_AFnR-KzziHVJvNPI34VCHT3EfEuacjTSJve0K4mPoKhsl4OSFjua7ikSaRLcqHSwN6CA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"list"
 					]
 				}
 			},

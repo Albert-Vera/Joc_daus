@@ -2,8 +2,8 @@ package com.springboot.joc_daus.controller;
 
 import com.springboot.joc_daus.model.User;
 import com.springboot.joc_daus.model.Plays;
-import com.springboot.joc_daus.repository.app.Game.ControlGame;
-import com.springboot.joc_daus.repository.app.Game.VerificarDatos;
+import com.springboot.joc_daus.Game.ControlGame;
+import com.springboot.joc_daus.Game.VerificarDatos;
 import com.springboot.joc_daus.service.IPlaysService;
 import com.springboot.joc_daus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
