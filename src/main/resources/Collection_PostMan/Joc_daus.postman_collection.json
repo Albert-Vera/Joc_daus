@@ -10,24 +10,23 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8090/user?user=admin&password=1234",
+					"raw": "localhost:8090/authenticate",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"user"
-					],
-					"query": [
-						{
-							"key": "user",
-							"value": "admin"
-						},
-						{
-							"key": "password",
-							"value": "1234"
-						}
+						"authenticate"
 					]
 				}
 			},
