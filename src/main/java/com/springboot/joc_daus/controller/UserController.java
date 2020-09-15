@@ -46,6 +46,7 @@ public class UserController {
         // No me parece la manera más correcta de rechazar el UserName, pero de momento No Acepta Nombre Repetido
         if(user.getUserName().equalsIgnoreCase("ERROR.. USUARIO YA EXISTENTE !")) return new ResponseEntity<>(user, HttpStatus.NOT_ACCEPTABLE);
         iUserService.save(user);
+        System.out.println(".............................tope................. ");
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
     //
